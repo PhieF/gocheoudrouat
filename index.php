@@ -17,7 +17,7 @@ $string = file_get_contents("stat");
 $stat = json_decode($string, true);
 if($stat==null)
 $stat =array();
-array_push($stat,$ip);
+array_push($stat,md5($ip));
 $fp = fopen('stat', 'w');
 fwrite($fp, json_encode($stat));
 fclose($fp);
